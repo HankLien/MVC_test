@@ -4,6 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * 
+ * @author Hank L
+ *
+ */
 public class ControllerFactory {
 	private IController iController;
 
