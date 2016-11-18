@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.acer.mvc.model.ConnectionFactory;
 import com.acer.mvc.model.Model;
 
-public class ModelDataInsert {
+public class ModelTool {
 	
 	public final static String CITY_INSERT_SQL = "INSERT INTO DTS.H_CITY(PROVINCE_NO, CITY_NO, CITY_NAME) VALUES (?,?,?)";
 	public final static String TOWN_INSERT_SQL = "INSERT INTO DTS.H_TOWN(PROVINCE_NO, CITY_NO, AREA_NO, AREA_NAME) VALUES (?,?,?,?)";

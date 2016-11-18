@@ -4,16 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.acer.mvc.model.IModel;
 import com.acer.mvc.model.Model;
+import com.acer.mvc.model.ModelFactory;
 import com.acer.mvc.vo.UserVo;
 
 public class ControllerImpl implements IController {
-	private Model model = new Model();
+	private IModel model;
 
 	@Override
 	public List<Map<String, String>> getFilterTowns(String provinceNo, String cityNo) {
 
-		return getModel().getFilterTowns(provinceNo, cityNo);
+		return getModel().getListMapTown(provinceNo, cityNo);
 	}
 
 	@Override
@@ -42,7 +44,9 @@ public class ControllerImpl implements IController {
 		return map;
 	}
 
-	public Model getModel() {
+	public IModel getModel() {
+		ModelFactory modelFactory = ModelFactory.getInstance();
+		model = modelFactory.getModel();
 		return model;
 	}
 }

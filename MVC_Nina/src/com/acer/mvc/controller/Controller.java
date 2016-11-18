@@ -49,7 +49,7 @@ public class Controller {
 	}
 	
 	public List<Map<String,String>> getFilterTowns(String provinceNo, String cityNo) {
-		 return getModel().getFilterTowns(provinceNo, cityNo);
+		 return getModel().getListMapTown(provinceNo, cityNo);
 	}
 	
 	public List<Map<String, String>> getListMapCity() {

@@ -9,7 +9,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class Model {
+public class Model implements IModel{
 
 	public static String cityValues[] = { "[{\"id\":{\"provinceNo\":\"63\",\"cityNo\":\"000\",\"cityName\":\"臺北市\"}},{\"id\":{\"provinceNo\":\"65\",\"cityNo\":\"000\",\"cityName\":\"新北市\"}},{\"id\":{\"provinceNo\":\"68\",\"cityNo\":\"000\",\"cityName\":\"桃園市\"}},{\"id\":{\"provinceNo\":\"66\",\"cityNo\":\"000\",\"cityName\":\"臺中市\"}},{\"id\":{\"provinceNo\":\"67\",\"cityNo\":\"000\",\"cityName\":\"臺南市\"}},{\"id\":{\"provinceNo\":\"64\",\"cityNo\":\"000\",\"cityName\":\"高雄市\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"004\",\"cityName\":\"新竹縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"005\",\"cityName\":\"苗栗縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"007\",\"cityName\":\"彰化縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"008\",\"cityName\":\"南投縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"009\",\"cityName\":\"雲林縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"010\",\"cityName\":\"嘉義縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"013\",\"cityName\":\"屏東縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"002\",\"cityName\":\"宜蘭縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"015\",\"cityName\":\"花蓮縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"014\",\"cityName\":\"臺東縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"016\",\"cityName\":\"澎湖縣\"}},{\"id\":{\"provinceNo\":\"09\",\"cityNo\":\"020\",\"cityName\":\"金門縣\"}},{\"id\":{\"provinceNo\":\"09\",\"cityNo\":\"007\",\"cityName\":\"連江縣\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"017\",\"cityName\":\"基隆市\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"018\",\"cityName\":\"新竹市\"}},{\"id\":{\"provinceNo\":\"10\",\"cityNo\":\"020\",\"cityName\":\"嘉義市\"}}]" };
 	public static String valuesTowns[] = {
@@ -93,7 +93,7 @@ public class Model {
 		return townslistmap;
 	}
 
-	public List<Map<String, String>> getFilterTowns(String provinceNo,
+	public List<Map<String, String>> getListMapTown(String provinceNo,
 			String cityNo) {
 		listFilterMapTown.clear();
 		for (Map<String, String> tempMap : getListMapTown()) {

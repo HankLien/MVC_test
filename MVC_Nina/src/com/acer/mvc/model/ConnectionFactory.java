@@ -14,6 +14,8 @@ import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import com.acer.mvc.constant.Config;
+
 public class ConnectionFactory {
 	
 	public ConnectionFactory() {
@@ -22,11 +24,8 @@ public class ConnectionFactory {
 	public Connection getConnection() {
 		Connection connection = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@10.36.4.243:1521:AGBSDEV";
-			String user = "dts";
-			String pssd = "agbsDEV";
-			connection = DriverManager.getConnection(url,user,pssd);
+			Class.forName(Config.DRIVER);
+			connection = DriverManager.getConnection(Config.URL,Config.ACCOUNT,Config.PSSD);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -37,10 +36,10 @@ public class ConnectionFactory {
 	
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	    dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-	    dataSource.setUsername("dts");
-	    dataSource.setPassword("agbsDEV");
-	    dataSource.setUrl("jdbc:oracle:thin:@10.36.4.243:1521:AGBSDEV");
+	    dataSource.setDriverClassName(Config.DRIVER);
+	    dataSource.setUrl(Config.URL);
+	    dataSource.setUsername(Config.ACCOUNT);
+	    dataSource.setPassword(Config.PSSD);
 	    return dataSource;
 	}
 	
