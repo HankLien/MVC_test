@@ -12,6 +12,13 @@ public class ModelFactory {
 		
 	}
 	
+	/**
+	 * getInstance
+	 * @author USER
+	 * @date 2016年11月21日上午10:12:29
+	 * @return ModelFactory
+	 * @return
+	 */
 	public static ModelFactory getInstance() {
 		System.out.println("ModelFactory getInstance()");
 		if(modelFactory == null) {
