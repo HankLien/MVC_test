@@ -6,21 +6,23 @@ public class ModelFactory {
 	
 	private static ModelFactory modelFactory;
 	
+	private static IModel model;
+	
 	private ModelFactory() {
 		
 	}
 	
 	public static ModelFactory getInstance() {
-		
+		System.out.println("ModelFactory getInstance()");
 		if(modelFactory == null) {
+			System.out.println("build new ModelFactory");
 			modelFactory = new ModelFactory();
 		}
-		
 		return modelFactory;
 	}
 	
 	public IModel getModel() {
-		IModel model = null;
+		System.out.println("ModelFactory.getModel()");
 		Class<?> act = null;
 		try {
 			act = Class.forName(Config.MODEL_CLASS);
@@ -29,7 +31,11 @@ public class ModelFactory {
 		}
 
 		try {
-			model = (IModel) act.newInstance();
+			if(model == null) {
+				model = (IModel) act.newInstance();
+				System.out.println("build new Model");
+				System.out.println("getModel = " + model.getClass().getName());
+			}
 		} catch (InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
