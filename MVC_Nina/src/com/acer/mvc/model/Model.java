@@ -140,7 +140,7 @@ public class Model implements IModel{
 
 	@Override
 	public boolean saveUser(UserVo userVo) {
-		return false;
+		return true;
 	}
 	
 }
