@@ -11,13 +11,20 @@ import java.util.Map;
 
 public class TownDao extends BaseDao {
 
-	private final String QUERY_TOWN_BY_CITY_NO_AND_PROVINCE_NO = "select * from H_TOWN WHERE CITY_NO = ? AND PROVINCE_NO = ?";
-	
+	/**
+	 * Query town by provinceNo and cityNo 
+	 * @author USER
+	 * @date 2016年11月21日上午11:23:09
+	 * @return List<Map<String,String>>
+	 * @param _provinceNo
+	 * @param _cityNo
+	 * @return
+	 */
 	public List<Map<String, String>> queryTown(String _provinceNo, String _cityNo) {
 		List<Map<String, String>> townMapList = new ArrayList<>();
 		Connection connection = super.getConnection();
 		try {
-			PreparedStatement prepareStatement = connection.prepareStatement(QUERY_TOWN_BY_CITY_NO_AND_PROVINCE_NO);
+			PreparedStatement prepareStatement = connection.prepareStatement("select * from H_TOWN WHERE CITY_NO = ? AND PROVINCE_NO = ?");
 			
 			prepareStatement.setString(1, _cityNo);
 			prepareStatement.setString(2, _provinceNo);

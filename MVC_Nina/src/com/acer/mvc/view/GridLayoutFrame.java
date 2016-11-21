@@ -157,7 +157,15 @@ public class GridLayoutFrame extends JFrame // 建構子
 				// Yes:0, NO:1, cancel:-1
 				if (chekcValue == 0) {
 					viewmsgMap = controller.doSubmit(vo);
-					refresherrormessage(viewmsgMap);
+					if(viewmsgMap != null && viewmsgMap.size() > 0) {
+						refresherrormessage(viewmsgMap);
+					}
+					else {
+						//清空錯誤訊息
+						refresherrormessage(viewmsgMap);
+						JOptionPane.showMessageDialog(null, "存檔成功");
+						
+					}
 				}
 			}
 		});
@@ -215,6 +223,21 @@ public class GridLayoutFrame extends JFrame // 建構子
 		viewmsgMap = errorMap;
 		lErrEmail.setText(viewmsgMap.get("email"));
 		lErrPhone.setText(viewmsgMap.get("phone"));
+		
+		if(viewmsgMap.get("userExist") != null) {
+			JOptionPane.showMessageDialog(null,
+				    "使用者已存在",
+				    "Waring",
+				    JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+		if(viewmsgMap.get("userSaveErr") != null) {
+			JOptionPane.showMessageDialog(null,
+					"存檔失敗，請聯絡客服",
+					"Error",
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
 	}
 
 	private void setTownsComboBox(List<Map<String, String>> townsMapList) {

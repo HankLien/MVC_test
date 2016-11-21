@@ -33,6 +33,12 @@ public class ModelTool {
 		}
 	}
 	
+	/**
+	 * Insert City by Model
+	 * @author USER
+	 * @date 2016年11月21日上午11:26:22
+	 * @return void
+	 */
 	@Test
 	public void insertCitys() {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -70,6 +76,12 @@ public class ModelTool {
 		}
 	}
 	
+	/**
+	 * Insert Town by Model
+	 * @author USER
+	 * @date 2016年11月21日上午11:26:39
+	 * @return void
+	 */
 //	@Test
 	public void insertTowns() {
 		ConnectionFactory connectionFactory = new ConnectionFactory();

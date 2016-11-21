@@ -13,7 +13,7 @@ public class ModelFactory {
 	}
 	
 	/**
-	 * getInstance
+	 * ModelFactory getInstance
 	 * @author USER
 	 * @date 2016年11月21日上午10:12:29
 	 * @return ModelFactory
@@ -28,6 +28,13 @@ public class ModelFactory {
 		return modelFactory;
 	}
 	
+	/**
+	 * Get Model by class name
+	 * @author USER
+	 * @date 2016年11月21日上午11:24:12
+	 * @return IModel
+	 * @return
+	 */
 	public IModel getModel() {
 		System.out.println("ModelFactory.getModel()");
 		Class<?> act = null;

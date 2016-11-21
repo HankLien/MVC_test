@@ -21,6 +21,13 @@ public class ConnectionFactory {
 	public ConnectionFactory() {
 	}
 	
+	/**
+	 * Get Connection
+	 * @author USER
+	 * @date 2016年11月21日上午11:26:03
+	 * @return Connection
+	 * @return
+	 */
 	public Connection getConnection() {
 		Connection connection = null;
 		try {

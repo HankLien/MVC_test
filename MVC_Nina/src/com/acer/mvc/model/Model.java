@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.acer.mvc.vo.UserVo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -131,4 +132,15 @@ public class Model implements IModel{
 			System.out.println(map.entrySet());
 		}
 	}
+
+	@Override
+	public List<Map<String, String>> findUser(String name, String email) {
+		return null;
+	}
+
+	@Override
+	public boolean saveUser(UserVo userVo) {
+		return false;
+	}
+	
 }

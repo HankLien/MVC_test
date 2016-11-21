@@ -15,20 +15,32 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class CityDao extends BaseDao {
 	
-	private final String QUERY_ALL_CITY = "select * from DTS.H_CITY";
-
+	/**
+	 * Query all citys
+	 * @author USER
+	 * @date 2016年11月21日上午11:23:47
+	 * @return List<Map<String,Object>>
+	 * @return
+	 */
 	public List<Map<String, Object>> queryCityBySJ() {
 		DataSource dataSource = this.getDataSource();
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		List<Map<String, Object>> cityList = jdbcTemplate.queryForList(QUERY_ALL_CITY);
+		List<Map<String, Object>> cityList = jdbcTemplate.queryForList("select * from DTS.H_CITY");
 		return cityList;
 	}
 	
+	/**
+	 * Query all citys
+	 * @author USER
+	 * @date 2016年11月21日上午11:23:39
+	 * @return List<Map<String,String>>
+	 * @return
+	 */
 	public List<Map<String, String>> queryCity() {
 		List<Map<String, String>> cityMapList = new ArrayList<>();
 		Connection connection = super.getConnection();
 		try {
-			PreparedStatement prepareStatement = connection.prepareStatement(QUERY_ALL_CITY);
+			PreparedStatement prepareStatement = connection.prepareStatement("select * from DTS.H_CITY");
 			ResultSet result = prepareStatement.executeQuery();
 			while(result.next()) {
 				Map<String, String> cityMap = new HashMap<>();

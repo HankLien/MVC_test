@@ -26,8 +26,28 @@ public class ControllerImpl implements IController {
 
 	@Override
 	public Map<String, String> doSubmit(UserVo vo) {
-
-		return this.doValidate(vo);
+		Map<String, String> validateMap = this.doValidate(vo);
+		if(validateMap != null && validateMap.size() > 0) {
+			return validateMap;
+		}
+		
+		String name = vo.getName();
+		String email = vo.getEmail();
+		
+		List<Map<String, String>> userMapList = getModel().findUser(name, email);
+		if(userMapList != null && userMapList.size() > 0) {
+			validateMap.put("userExist", "使用者已存在");
+			return validateMap;
+		}
+		
+		boolean isSave = getModel().saveUser(vo);
+		if(!isSave) {
+			System.out.println("I'm sentinel");
+			validateMap.put("userSaveErr", "存檔失敗");
+			return validateMap;
+		}
+		
+		return validateMap;
 	}
 
 	private Map<String, String> doValidate(UserVo vo) {
